@@ -1,5 +1,14 @@
 ﻿using SingleResponsability;
 
-StudentRepository studentRepository = new();
-studentRepository.Export();
-Console.WriteLine("Proceso Completado");
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        StudentRepository studentRepository = new();
+        ExportHelperCSV exportHelper = new ExportHelperCSV();
+
+        exportHelper.ExportStudents(studentRepository.GetAll());
+
+        Console.WriteLine("Proceso Completado");
+    }
+}
